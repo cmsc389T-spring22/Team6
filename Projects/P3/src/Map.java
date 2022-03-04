@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
+import java.util.Iterator;
+
 
 public class Map{
 
@@ -71,6 +73,24 @@ public class Map{
 	public JComponent eatCookie(String name) {
 		//update locations, components, field, and cookies
 		//the id for a cookie at (10, 1) is tok_x10_y1
+
+		Location pacman_loc = locations.get(name);
+		HashSet<Type> set_at_loc = field.get(pacman_loc);
+		Iterator<Type> iter = set_at_loc.iterator();
+
+		while(iter.hasNext()) {
+			if(iter.next() == Type.COOKIE) {
+				iter.remove();
+
+				String cookie_id = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
+				locations.remove(cookie_id);
+				JComponent removed = components.remove(cookie_id);
+
+				cookies--;
+				return removed;
+			}
+		}
+
 		return null;
 	}
 }
