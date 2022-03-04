@@ -17,7 +17,7 @@ public class PacMan{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		ArrayList<Location> valid_moves = new ArrayList<Location>;
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
 		int current_x = myLoc.x;
 		int current_y = myLoc.y;
 		Location currentLoc;
