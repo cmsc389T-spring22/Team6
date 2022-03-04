@@ -4,13 +4,13 @@ import java.io.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-public class TestMapEatCookie {
+public class TestMapEatCookie extends TestCase {
 	
 	public void testMapEatCookie() {
 
 		int scale = 20;
-		
-		Map testMap = new Map(30);
+
+		Map testMap = new Map(scale);
 		Location loc = new Location(1,1);
 
 		PacMan pacman = new PacMan("pacman", loc, testMap);
