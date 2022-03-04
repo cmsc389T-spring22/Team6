@@ -31,5 +31,6 @@ public class PacMan{
 			return myMap.eatCookie(myName);
 		}
 
+		return null;
 	}
 }
