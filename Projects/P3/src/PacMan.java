@@ -23,21 +23,21 @@ public class PacMan{
 		
 		// checking top and bottom
 		for (int i = -1; i <= 1; i++) {
-			if (myMap.getLoc(this.myLoc.shift(i, -1)) == Map.Type.EMPTY) {
+			if (myMap.getLoc(this.myLoc.shift(i, -1)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(i, -1)) == Map.Type.COOKIE) {
 				valid_moves.add(this.myLoc.shift(i, -1));
 			}
-			if (myMap.getLoc(this.myLoc.shift(i, 1)) == Map.Type.EMPTY) {
+			if (myMap.getLoc(this.myLoc.shift(i, 1)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(i, 1)) == Map.Type.COOKIE) {
 				valid_moves.add(this.myLoc.shift(i, 1));
 			}
 		}
 		
 		// checking left
-		if (myMap.getLoc(this.myLoc.shift(-1, 0)) == Map.Type.EMPTY) {
+		if (myMap.getLoc(this.myLoc.shift(-1, 0)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(-1, 0)) == Map.Type.COOKIE) {
 			valid_moves.add(this.myLoc.shift(-1, 0));
 		}
 		
 		// checking right
-		if (myMap.getLoc(this.myLoc.shift(1, 0)) == Map.Type.EMPTY) {
+		if (myMap.getLoc(this.myLoc.shift(1, 0)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(1, 0)) == Map.Type.COOKIE) {
 			valid_moves.add(this.myLoc.shift(1, 0));
 		}
 		
