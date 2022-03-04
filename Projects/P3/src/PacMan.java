@@ -21,23 +21,28 @@ public class PacMan{
 		int current_x = this.myLoc.x;
 		int current_y = this.myLoc.y;
 		
+		HashSet<Map.Type> empty = new HashSet<>();
+        empty.add(Map.Type.EMPTY);
+        HashSet<Map.Type> cookie = new HashSet<>();
+        empty.add(Map.Type.COOKIE);
+		
 		// checking top and bottom
 		for (int i = -1; i <= 1; i++) {
-			if (myMap.getLoc(this.myLoc.shift(i, -1)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(i, -1)) == Map.Type.COOKIE) {
+			if (myMap.getLoc(this.myLoc.shift(i, -1)) == empty || myMap.getLoc(this.myLoc.shift(i, -1)) == cookie) {
 				valid_moves.add(this.myLoc.shift(i, -1));
 			}
-			if (myMap.getLoc(this.myLoc.shift(i, 1)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(i, 1)) == Map.Type.COOKIE) {
+			if (myMap.getLoc(this.myLoc.shift(i, 1)) == empty || myMap.getLoc(this.myLoc.shift(i, 1)) == cookie) {
 				valid_moves.add(this.myLoc.shift(i, 1));
 			}
 		}
 		
 		// checking left
-		if (myMap.getLoc(this.myLoc.shift(-1, 0)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(-1, 0)) == Map.Type.COOKIE) {
+		if (myMap.getLoc(this.myLoc.shift(-1, 0)) == empty || myMap.getLoc(this.myLoc.shift(-1, 0)) == cookie) {
 			valid_moves.add(this.myLoc.shift(-1, 0));
 		}
 		
 		// checking right
-		if (myMap.getLoc(this.myLoc.shift(1, 0)) == Map.Type.EMPTY || myMap.getLoc(this.myLoc.shift(1, 0)) == Map.Type.COOKIE) {
+		if (myMap.getLoc(this.myLoc.shift(1, 0)) == empty || myMap.getLoc(this.myLoc.shift(1, 0)) == cookie) {
 			valid_moves.add(this.myLoc.shift(1, 0));
 		}
 		
