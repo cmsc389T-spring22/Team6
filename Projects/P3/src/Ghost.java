@@ -13,33 +13,31 @@ public class Ghost{
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		ArrayList<Location> valid_moves = new ArrayList<Location>;
-		int current_x = myLoc.x;
-		int current_y = myLoc.y;
-		Location currentLoc;
+		ArrayList<Location> valid_moves = new ArrayList<Location>();
+		int current_x = this.myLoc.x;
+		int current_y = this.myLoc.y;
 		
-		// looking in top and bottom directions
-		for (int i = current_x-1; i <= current_x+1; i++) {
-			currentLoc = new Location(i, current_y-1);
-			if (myMap.getLoc(currentLoc) != Map.Type.WALL) {
-				valid_moves.add(currentLoc);
+		HashSet<Map.Type> wall = new HashSet<>();
+        empty.add(Map.Type.WALL);
+		
+		// checking top and bottom
+		for (int i = -1; i <= 1; i++) {
+			if (myMap.getLoc(this.myLoc.shift(i, -1)) != wall) {
+				valid_moves.add(this.myLoc.shift(i, -1));
 			}
-			currentLoc = new Location(i, current_y+1);
-			if (myMap.getLoc(currentLoc) != Map.Type.WALL) {
-				valid_moves.add(currentLoc);
+			if (myMap.getLoc(this.myLoc.shift(i, 1)) != wall) {
+				valid_moves.add(this.myLoc.shift(i, 1));
 			}
 		}
 		
-		// looking left
-		currentLoc = new Location(current_x-1, current_y);
-		if (myMap.getLoc(currentLoc) != Map.Type.WALL) {
-			valid_moves.add(currentLoc);
+		// checking left
+		if (myMap.getLoc(this.myLoc.shift(-1, 0)) != wall) {
+			valid_moves.add(this.myLoc.shift(-1, 0));
 		}
 		
-		// looking right
-		currentLoc = new Location(current_x+1, current_y);
-		if (myMap.getLoc(currentLoc) != Map.Type.WALL) {
-			valid_moves.add(currentLoc);
+		// checking right
+		if (myMap.getLoc(this.myLoc.shift(1, 0)) != wall) {
+			valid_moves.add(this.myLoc.shift(1, 0));
 		}
 		
 		return valid_moves;
