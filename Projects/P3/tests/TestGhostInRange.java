@@ -14,7 +14,7 @@ public class TestGhostInRange extends TestCase {
 		assertTrue(pacman.is_ghost_in_range());
 	}
 
-	should not be in range
+	// should not be in range
 	public void testGhostInRange2() throws FileNotFoundException{
 		MainFrame frame = new MainFrame();
 		PacMan pacman = frame.addPacMan(new Location(3, 2));
