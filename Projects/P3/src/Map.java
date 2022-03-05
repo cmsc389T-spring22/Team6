@@ -64,7 +64,23 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
+		// the location of the ghost
+        Location ghostLoc = locations.get(Name);
+
+
+		Location left = new Location(ghostLoc.x, ghostLoc.y-1);
+		Location right = new Location(ghostLoc.x, ghostLoc.y + 1);
+		Location up = new Location(ghostLoc.x-1, ghostLoc.y);
+		Location down = new Location(ghostLoc.x+1, ghostLoc.y);
+
+
+		// check the map to see if a pacman exists in any of the above locations
+		if (field.get(left).contains(Type.PACMAN) || field.get(right).contains(Type.PACMAN) ||
+				field.get(up).contains(Type.PACMAN) || field.get(down).contains(Type.PACMAN)) {
+			gameOver = true;
+			return true;
+		}
+
 		return false;
 	}
 	
