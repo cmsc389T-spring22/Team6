@@ -20,14 +20,14 @@ public class Ghost{
 		HashSet<Map.Type> wall = new HashSet<>();
         empty.add(Map.Type.WALL);
 		
-		// checking top and bottom
-		for (int i = -1; i <= 1; i++) {
-			if (myMap.getLoc(this.myLoc.shift(i, -1)) != wall) {
-				valid_moves.add(this.myLoc.shift(i, -1));
-			}
-			if (myMap.getLoc(this.myLoc.shift(i, 1)) != wall) {
-				valid_moves.add(this.myLoc.shift(i, 1));
-			}
+		// checking top
+        if (myMap.getLoc(this.myLoc.shift(0, -1)) != wall) {
+			valid_moves.add(this.myLoc.shift(0, -1));
+		}
+        
+        // checking bottom
+        if (myMap.getLoc(this.myLoc.shift(0, 1)) != wall) {
+			valid_moves.add(this.myLoc.shift(0, 1));
 		}
 		
 		// checking left
