@@ -18,7 +18,8 @@ java -cp "src/" StartMenu
 -
 
 #### move()
--
+- This method uses get_valid_moves() to find valid moves for PacMan and chooses one(whatever is at index 0 of what it gets from get_valid_moves()). It then moves PacMan to that new location using move() in the Map class. 
+- It returns true if PacMan was successfully moved and false if it could not be moved.
 
 #### is_ghost_in_range()
 -
@@ -34,7 +35,8 @@ java -cp "src/" StartMenu
 -
 
 #### move()
--
+- This method uses get_valid_moves() to find valid moves for a Ghost and chooses one(whatever is at index 0 of what it gets from get_valid_moves()). It then moves the Ghost to that new location using move() in the Map class. 
+- It returns true if the Ghost was successfully moved and false if it could not be moved.
 
 #### is_pacman_in_range()
 -
