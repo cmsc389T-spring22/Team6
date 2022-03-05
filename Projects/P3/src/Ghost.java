@@ -17,7 +17,13 @@ public class Ghost{
 	}
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> locs = new ArrayList<>();
+		if (locs.size() == 0)
+			return false;
+		else {
+			myLoc = locs.get(0);
+			return myMap.move("pacman",myLoc,Map.Type.GHOST);
+		}
 	}
 
 	public boolean is_pacman_in_range() {
