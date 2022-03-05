@@ -1,6 +1,6 @@
 # Team 6's CMSC389T Pacman Project
 
-By Ava Zhang, Kian Afkhami, Mikias Atnafu...
+By Ava Zhang, Kian Afkhami, Mikias Atnafu, and Zach Teselko
 
 (put image of Pacman code running here)
 
@@ -15,7 +15,8 @@ java -cp "src/" StartMenu
 ### Pacman Functions
 
 #### get_valid_moves()
--
+- This method uses the shift() method of the Location class to take the current location, look one location above, below, to the left and to the right, and check to see if this spot is free for PacMan to move into. If it is, the Location is added into the valid_moves() ArrayList. This ArrayList is returned at the end of the function.
+- The spot is free if it is empty or if there is a cookie there. (These conditions are different for Ghost)
 
 #### move()
 - This method uses get_valid_moves() to find valid moves for PacMan and chooses one(whatever is at index 0 of what it gets from get_valid_moves()). It then moves PacMan to that new location using move() in the Map class. 
@@ -38,7 +39,8 @@ java -cp "src/" StartMenu
 ### Ghost Functions
 
 #### get_valid_moves()
--
+- - This method uses the shift() method of the Location class to take the current location, look one location above, below, to the left and to the right, and check to see if this spot is free for the Ghost to move into. If it is, the Location is added into the valid_moves() ArrayList. This ArrayList is returned at the end of the function.
+- The spot is free as long as there is not a Wall there. Therefore, the Ghost can move through PacMan and other Ghosts (These conditions are different for PacMan)
 
 #### move()
 - This method uses get_valid_moves() to find valid moves for a Ghost and chooses one(whatever is at index 0 of what it gets from get_valid_moves()). It then moves the Ghost to that new location using move() in the Map class. 
@@ -60,7 +62,8 @@ java -cp "src/" StartMenu
 ### Map Functions
 
 #### move(String name, Location loc, Type type)
--
+- This method updates the fields and locations HashMaps accordingly to represent what has now moved to the Location loc.
+- Then, accesses the specific JComponent given the name parameter and the components HashMap, and moves the component in the GUI using the component's setLocation() method.
 
 #### getLoc(Location loc)
 - This method's field is a location. It returns a HashSet of Map.Type that are at that location.
