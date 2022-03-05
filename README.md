@@ -1,6 +1,6 @@
 # Team 6's CMSC389T Pacman Project
 
-By Ava Zhang, Kian Afkhami, ...
+By Ava Zhang, Kian Afkhami, Mikias Atnafu...
 
 (put image of Pacman code running here)
 
@@ -22,7 +22,13 @@ java -cp "src/" StartMenu
 - It returns true if PacMan was successfully moved and false if it could not be moved.
 
 #### is_ghost_in_range()
--
+- A method that checks if the a ghost is within one radius range. if so, the method will return true or false otherwise
+- **Examples**:
+  ```java
+  //ghost at location (7,8)
+  //pacman at location (7,9)
+  ghost.is_pacman_in_range() -> true 
+  ```
 
 #### consume()
 - This method checks the pacman's map to see if there is a COOKIE type in its location.  If so, the method calls pacman's map's eatCookie() method and returns its results
@@ -39,7 +45,13 @@ java -cp "src/" StartMenu
 - It returns true if the Ghost was successfully moved and false if it could not be moved.
 
 #### is_pacman_in_range()
--
+- A method that checks if the pacman is within one radius range. if so, the method will return true or false otherwise
+- **Examples**:
+  ```java
+  //ghost at location (7,8)
+  //pacman at location (7,9)
+  ghost.is_pacman_in_range() -> true 
+  ```
 
 #### attack()
 - This method checks to see if pacman is within attack range (using Ghost's is_pacman_in_range()).  If so, it executes the ghost's map's attack() method and returns the result.
@@ -54,7 +66,8 @@ java -cp "src/" StartMenu
 - This method's field is a location. It returns a HashSet of Map.Type that are at that location.
 
 #### attack(String name)
--
+- checks if the ghost was able to successfully attack a pacman. if attack is sucessful it returns true, otherwise returns false.
+
 
 #### eatCookie(String name)
 - This method takes in the pacman's name and looks for its location using the map's locations instance variable.  It then iterates through the set of Types at that location using map's field variable, and deletes the cookie type if it exists.  If the cookie exists it also deletes the cookie from locations and components.
