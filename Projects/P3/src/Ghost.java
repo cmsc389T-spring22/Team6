@@ -18,7 +18,7 @@ public class Ghost{
 		int current_y = this.myLoc.y;
 		
 		HashSet<Map.Type> wall = new HashSet<>();
-        empty.add(Map.Type.WALL);
+        	wall.add(Map.Type.WALL);
 		
 		// checking top
         if (myMap.getLoc(this.myLoc.shift(0, -1)) != wall) {
