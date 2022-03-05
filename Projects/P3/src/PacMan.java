@@ -55,7 +55,18 @@ public class PacMan{
 		}
 	}
 
-	public boolean is_ghost_in_range() { 
+	public boolean is_ghost_in_range() {
+		// check the left, right, up, and down location, which is 1 radius from the pacman loc
+		Location left = new Location(this.myLoc.x, this.myLoc.y - 1);
+		Location right = new Location(this.myLoc.x, this.myLoc.y - 1);
+		Location up = new Location(this.myLoc.x-1, this.myLoc.y);
+		Location down = new Location(this.myLoc.x+1, this.myLoc.y);
+
+		// check the map to see if a ghost exists in any of the above locations
+		if (myMap.getLoc(left).contains(Map.Type.GHOST) || myMap.getLoc(right).contains(Map.Type.GHOST) ||
+				myMap.getLoc(up).contains(Map.Type.GHOST) || myMap.getLoc(down).contains(Map.Type.GHOST)) {
+			return true;
+		}
 		return false;
 	}
 
