@@ -5,6 +5,6 @@ import java.io.*;
 public class TestMapMove {
 
 	public void testMapMove() {
-		return null;
+		
 	}
 }
