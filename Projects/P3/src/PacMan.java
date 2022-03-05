@@ -2,8 +2,6 @@ import java.util.HashSet;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
-import com.sun.jdi.Location;
-
 public class PacMan{
 	String myName;
 	Location myLoc;
@@ -18,13 +16,11 @@ public class PacMan{
 
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
-		int current_x = this.myLoc.x;
-		int current_y = this.myLoc.y;
 		
 		HashSet<Map.Type> empty = new HashSet<>();
-        empty.add(Map.Type.EMPTY);
-        HashSet<Map.Type> cookie = new HashSet<>();
-        empty.add(Map.Type.COOKIE);
+		empty.add(Map.Type.EMPTY);
+		HashSet<Map.Type> cookie = new HashSet<>();
+		empty.add(Map.Type.COOKIE);
 		
 		// checking top and bottom
 		for (int i = -1; i <= 1; i++) {
