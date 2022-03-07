@@ -12,35 +12,39 @@ On your command line,
 mkdir MyFirstRepo
 cd MyFirstRepo
 ```
-2. Create an empty file in your local workspace
+2. Turn the directory you've just created into a git repository
+```
+git init
+```
+3. Create an empty file in your local workspace
 ```bash
 touch test.txt
 ```
-3. Add "Hello World!" to your file
+4. Add "Hello World!" to your file
 ```bash
 echo "Hello World!" >> test.txt
 ```
-4. [Optional] Verify that you have one untracked file
+5. [Optional] Verify that you have one untracked file
 ```bash
 git status
 ```
-5. Add your file to the **staging area**
+6. Add your file to the **staging area**
 ```bash
 git add test.txt
 ```
-6. [Optional] Verify that you your file is in the staging area
+7. [Optional] Verify that you your file is in the staging area
 ```bash
 git status
 ```
-7. Commit your file to your **local repository**
+8. Commit your file to your **local repository**
 ```bash
 git commit -m "Adding my first file"
 ```
-8. Rename your branch to "main"
+9. Rename your branch to "main"
 ```
 git branch -M main
 ```
-9. [Optional] Verify that your commit shows up in your log
+10. [Optional] Verify that your commit shows up in your log
 ```bash
 git log
 ```
