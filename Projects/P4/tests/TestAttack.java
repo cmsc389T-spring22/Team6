@@ -8,14 +8,15 @@ public class TestAttack extends TestCase {
 		int scale = 20;
 		Map testMap = new Map(scale);
 		Location loc = new Location(1,1);
+		Location ghost_loc = new Location(2, 1);
 
 		PacMan pacman = new PacMan("pacman", loc, testMap);
 		PacManComponent pc = new PacManComponent(loc.x,loc.y,scale);
         testMap.add("pacman", loc, pc, Map.Type.PACMAN);
 
-		Ghost blinky = new Ghost("Blinky", loc, testMap);
-		GhostComponent gh1 = new GhostComponent(loc.x, loc.y, scale);
-		testMap.add("Blinky", loc, gh1, Map.Type.GHOST);
+		Ghost blinky = new Ghost("Blinky", ghost_loc, testMap);
+		GhostComponent gh1 = new GhostComponent(ghost_loc.x, ghost_loc.y, scale);
+		testMap.add("Blinky", ghost_loc, gh1, Map.Type.GHOST);
 
 		Location otherLoc = new Location(2,2);
 		Ghost inky = new Ghost("Inky", otherLoc, testMap);
