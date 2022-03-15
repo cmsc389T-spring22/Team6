@@ -1,0 +1,34 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  push:
+    paths:
+      - 'Projects/P4/**'
+  pull_request:
+    paths:
+      - 'Projects/P4/**'
+  workflow_dispatch:
+    paths:
+      - 'Projects/P4/**'
+
+defaults:
+  run:
+    working-directory: Projects/P4/
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      # Runs a set of commands using the runners shell
+      - name: Compile src files
+        run: |
+          javac -cp "src/" src/*.java
