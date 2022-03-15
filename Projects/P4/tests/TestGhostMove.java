@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNull;
 
 public class TestGhostMove extends TestCase {
 
-	public void TestGhostMove() throws FileNotFoundException{
+	public void testGhostMove() throws FileNotFoundException{
 	
 		NoFrame frame = new NoFrame(); 
 		Location loc1 = new Location(1,1);
