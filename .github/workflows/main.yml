@@ -24,6 +24,38 @@ jobs:
         run: |
           javac -cp "src/" src/*.java
 
+
+  pacmanconsume:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile and run PacMan's consume() test
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
+  
+  ghostattack:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile and run Ghost's attack() test
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
+
+  mapeatcookie:
+     runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+   - name: Compile and run Map's eatCookie test
+        run: |
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
+
+
 # Mikias' Tests
 
   TestGhostInRange:
@@ -80,7 +112,7 @@ jobs:
 
   # Job to test PacMan.get_valid_moves()
   pacmangetvalidmoves:
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
@@ -110,3 +142,4 @@ jobs:
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
+
