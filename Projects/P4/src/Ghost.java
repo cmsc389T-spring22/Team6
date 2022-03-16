@@ -75,7 +75,7 @@ public class Ghost{
 		boolean pacManIsUp = (myMap.getLoc(up) != null && myMap.getLoc(up).contains(Map.Type.PACMAN)); 
 		boolean pacManIsDown = (myMap.getLoc(down) != null && myMap.getLoc(down).contains(Map.Type.PACMAN)); 
 		
-		if (pacManIsLeft || pacManIsRight || pacManIsUp || pacManIsDown) {
+		if (pacManIsLeft && pacManIsRight && pacManIsUp && pacManIsDown) {
 			return true;
 		} else {
 			return false;
