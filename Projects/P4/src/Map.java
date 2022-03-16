@@ -73,7 +73,7 @@ public class Map{
 			locations.put(name, loc);
 			
 			if (field.containsKey(loc)) {
-				field.get(loc).add(type);
+				field.get(loc);
 			} else {
 				// if the location didn't have anything before in the field, "initialize" it
 				field.put(loc, new HashSet<Type>());
