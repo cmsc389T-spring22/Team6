@@ -72,10 +72,10 @@ public class PacMan{
 		Location down = new Location(this.myLoc.x+1, this.myLoc.y);
 
 		// check the map to see if a ghost exists in any of the above locations
-		boolean ghostIsLeft = (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.PACMAN));
-		boolean ghostIsRight = (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.PACMAN));
-		boolean ghostIsUp = (myMap.getLoc(up) != null && myMap.getLoc(up).contains(Map.Type.PACMAN));
-		boolean ghostIsDown = (myMap.getLoc(down) != null && myMap.getLoc(down).contains(Map.Type.PACMAN));
+		boolean ghostIsLeft = (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.GHOST));
+		boolean ghostIsRight = (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST)); 
+		boolean ghostIsUp = (myMap.getLoc(up) != null && myMap.getLoc(up).contains(Map.Type.GHOST)); 
+		boolean ghostIsDown = (myMap.getLoc(down) != null && myMap.getLoc(down).contains(Map.Type.GHOST)); 
 		
 		if (ghostIsLeft || ghostIsRight || ghostIsUp || ghostIsDown) {
 			return true;
