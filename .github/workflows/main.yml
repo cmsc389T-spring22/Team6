@@ -46,15 +46,14 @@ jobs:
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
 
   mapeatcookie:
-     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-   - name: Compile and run Map's eatCookie test
+      - name: Compile and run Map's eatCookie test
         run: |
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
-
 
 # Mikias' Tests
 
@@ -112,7 +111,7 @@ jobs:
 
   # Job to test PacMan.get_valid_moves()
   pacmangetvalidmoves:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
