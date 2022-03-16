@@ -19,34 +19,34 @@ public class PacMan{
 		
 		// checking top
 		Location top = this.myLoc.shift(0, -1);
-        if (myMap.getLoc(top) != null) {
-        	if (!(myMap.getLoc(top).contains(Map.Type.WALL)) && !(myMap.getLoc(top).contains(Map.Type.GHOST))) {
-        		valid_moves.add(top);
-        	}
+       		if (myMap.getLoc(top) != null) {
+        		if (!(myMap.getLoc(top).contains(Map.Type.WALL)) && !(myMap.getLoc(top).contains(Map.Type.GHOST))) {
+        			valid_moves.add(top);
+        		}
 		}
 		
 		// checking bottom
-        Location bottom = this.myLoc.shift(0, 1);
-        if (myMap.getLoc(bottom) != null) {
-        	if (!(myMap.getLoc(bottom).contains(Map.Type.WALL)) && !(myMap.getLoc(bottom).contains(Map.Type.GHOST))) {
-        		valid_moves.add(bottom);
-        	}
+        	Location bottom = this.myLoc.shift(0, 1);
+        	if (myMap.getLoc(bottom) != null) {
+        		if (!(myMap.getLoc(bottom).contains(Map.Type.WALL)) && !(myMap.getLoc(bottom).contains(Map.Type.GHOST))) {
+        			valid_moves.add(bottom);
+        		}
 		}
         
-        // checking left
-        Location left = this.myLoc.shift(-1, 0);
-        if (myMap.getLoc(left) != null) {
-        	if (!(myMap.getLoc(left).contains(Map.Type.WALL)) && !(myMap.getLoc(left).contains(Map.Type.GHOST))) {
-        		valid_moves.add(left);
-        	}
+        	// checking left
+        	Location left = this.myLoc.shift(-1, 0);
+        	if (myMap.getLoc(left) != null) {
+        		if (!(myMap.getLoc(left).contains(Map.Type.WALL)) && !(myMap.getLoc(left).contains(Map.Type.GHOST))) {
+        			valid_moves.add(left);
+        		}
 		}
         
-        // checking right
-        Location right = this.myLoc.shift(1, 0);
-        if (myMap.getLoc(right) != null) {
-        	if (!(myMap.getLoc(right).contains(Map.Type.WALL)) && !(myMap.getLoc(right).contains(Map.Type.GHOST))) {
-        		valid_moves.add(right);
-        	}
+       		// checking right
+        	Location right = this.myLoc.shift(1, 0);
+        	if (myMap.getLoc(right) != null) {
+        		if (myMap.getLoc(right).contains(Map.Type.WALL)) {
+        			valid_moves.add(right);
+        		}
 		}
 		
 		return valid_moves;
