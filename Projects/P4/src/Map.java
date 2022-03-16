@@ -128,7 +128,7 @@ public class Map{
 		Iterator<Type> iter = set_at_loc.iterator();
 
 		while(iter.hasNext()) {
-			if(iter.next() == Type.COOKIE) {
+			if(iter.next() != Type.COOKIE) {
 				iter.remove();
 
 				String cookie_id = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
