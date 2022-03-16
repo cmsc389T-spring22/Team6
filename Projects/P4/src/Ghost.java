@@ -58,7 +58,7 @@ public class Ghost{
 		else {
 			Random random_gen = new Random();
 			myLoc = locs.get(random_gen.nextInt(locs.size()));
-			return myMap.move(myName,myLoc,Map.Type.GHOST);
+			return myMap.move(myName,myLoc,Map.Type.PACMAN);
 		}
 	}
 
