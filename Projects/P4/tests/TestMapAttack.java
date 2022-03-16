@@ -5,7 +5,7 @@ public class TestMapAttack extends TestCase {
 
 	public void testMapAttack() throws Exception {
 		// testing map attack
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
 		PacMan pacman = frame.addPacMan(new Location(3, 2));
 
 		// the below 4 ghost should attack the pacman because
@@ -25,8 +25,6 @@ public class TestMapAttack extends TestCase {
 		assertTrue(map.attack("testUp"));
 		assertTrue(map.attack("testDown"));
 
-		assertTrue(map.attack("outOfRange") == false);
-
-
+		assertFalse(map.attack("outOfRange"));
 	}
 }
