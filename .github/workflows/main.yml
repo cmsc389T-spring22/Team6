@@ -41,8 +41,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile and run PacMan's get_valid_moves() test, testPacManValidMoves
         run: |
-          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java 
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
+          javac -cp "tests/junit-4.10.jar;src/;tests/" src/*.java tests/*.java 
+          java -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestPacManValidMoves
 
   # Job to test Ghost.get_valid_moves()
   ghostgetvalidmoves:
@@ -52,8 +52,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile and run Ghost's get_valid_moves() test, testGhostValidMoves
         run: |
-          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
+          javac -cp "tests/junit-4.10.jar;src/;tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestGhostValidMoves
 
   # Job to test Map.move()
   mapmove:
@@ -63,5 +63,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile and run Map's move() test, testMapMove
         run: |
-          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
+          javac -cp "tests/junit-4.10.jar;src/;tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar;src/;tests/" org.junit.runner.JUnitCore TestMapMove
