@@ -18,7 +18,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Compile src files
         run: |
-          javac -cp Projects/P4/tests/"junit-4.10.jar:." Projects/P4/src/*.java
+          javac -cp "src/" src/*.java
 
 
   TestGhostInRange:
@@ -34,8 +34,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: compile and test ghost in range
         run: |
-          javac -cp Projects/P4/tests/"junit-4.10.jar:." Projects/P4/src/*.java
-          java -cp Projects/P4/tests/"junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostInRange
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
 
 
   TestPacmanInRange:
@@ -51,8 +51,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: compile and test pacman in range
         run: |
-          javac -cp Projects/P4/tests/"junit-4.10.jar:." Projects/P4/src/*.java
-          java -cp Projects/P4/tests/"junit-4.10.jar:." org.junit.runner.JUnitCore TestPacmanInRange
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacmanInRange
 
 
   TestMapAttack:
@@ -68,7 +68,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: compile and run mat attack
         run: |
-          javac -cp Projects/P4/tests/"junit-4.10.jar:." Projects/P4/src/*.java
-          java -cp Projects/P4/tests/"junit-4.10.jar:." org.junit.runner.JUnitCore TestMapAttack
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
 
     
