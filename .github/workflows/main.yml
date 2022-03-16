@@ -3,16 +3,7 @@
 name: CI
 
 # Controls when the workflow will run
-on:
-  push:
-    paths:
-      - 'Projects/P4/**'
-  pull_request:
-    paths:
-      - 'Projects/P4/**'
-  workflow_dispatch:
-    paths:
-      - 'Projects/P4/**'
+on: [push, pull_request, workflow_dispatch]
 
 defaults:
   run:
