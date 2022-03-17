@@ -26,7 +26,7 @@ public class Ghost{
         	// checking bottom
         	Location bottom = this.myLoc.shift(0, 1);
         	if (myMap.getLoc(bottom) != null) {
-        		if (!(myMap.getLoc(bottom).contains(Map.Type.WALL))) {
+        		if ((myMap.getLoc(bottom).contains(Map.Type.WALL))) {
         			valid_moves.add(bottom);
         		}
 		}
@@ -34,7 +34,7 @@ public class Ghost{
 		// checking left
         	Location left = this.myLoc.shift(-1, 0);
         	if (myMap.getLoc(left) != null) {
-        		if (myMap.getLoc(left).contains(Map.Type.WALL)) {
+        		if (!(myMap.getLoc(left).contains(Map.Type.WALL))) {
         			valid_moves.add(left);
         		}
 		}

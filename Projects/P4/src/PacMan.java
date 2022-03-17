@@ -28,7 +28,7 @@ public class PacMan{
 		// checking bottom
         	Location bottom = this.myLoc.shift(0, 1);
         	if (myMap.getLoc(bottom) != null) {
-        		if (!(myMap.getLoc(bottom).contains(Map.Type.WALL)) && !(myMap.getLoc(bottom).contains(Map.Type.GHOST))) {
+        		if (myMap.getLoc(bottom).contains(Map.Type.WALL)) {
         			valid_moves.add(bottom);
         		}
 		}
@@ -44,7 +44,7 @@ public class PacMan{
        		// checking right
         	Location right = this.myLoc.shift(1, 0);
         	if (myMap.getLoc(right) != null) {
-        		if (myMap.getLoc(right).contains(Map.Type.WALL)) {
+        		if (!(myMap.getLoc(right).contains(Map.Type.WALL)) && !(myMap.getLoc(right).contains(Map.Type.GHOST))) {
         			valid_moves.add(right);
         		}
 		}
