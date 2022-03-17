@@ -9,7 +9,7 @@ public class TestPacManValidMoves extends TestCase {
 		
 		NoFrame myFrame = new NoFrame();
 		
-		Location loc = new Location(9,9);
+		Location loc = new Location(7,7);
 		
 		ArrayList<Location> valid_moves = myFrame.addPacMan(loc).get_valid_moves();
 		assertEquals(valid_moves.size(), 2);

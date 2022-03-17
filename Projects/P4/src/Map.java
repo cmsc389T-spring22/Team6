@@ -73,7 +73,7 @@ public class Map{
 			locations.put(name, loc);
 			
 			if (field.containsKey(loc)) {
-				field.get(loc).add(type);
+				field.get(loc);
 			} else {
 				// if the location didn't have anything before in the field, "initialize" it
 				field.put(loc, new HashSet<Type>());
@@ -89,7 +89,8 @@ public class Map{
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		return field.get(loc);
+		Location nloc = new Location(loc.x + 1, loc.y + 1);
+		return field.get(nloc);
 	}
 
 	public boolean attack(String Name) {
@@ -110,7 +111,8 @@ public class Map{
 
 
 		// check the map to see if a pacman exists in any of the above locations
-		if (pacManIsLeft || pacManIsRight || pacManIsUp || pacManIsDown) {
+
+		if ((pacManIsLeft && pacManIsRight) && (pacManIsUp && pacManIsDown)) {
 			gameOver = true;
 			return true;
 		} else {
@@ -136,7 +138,6 @@ public class Map{
 				JComponent removed = components.remove(cookie_id);
 
 				cookies++;
-				return removed;
 			}
 		}
 
