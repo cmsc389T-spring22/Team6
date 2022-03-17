@@ -9,10 +9,10 @@ public class TestGhostValidMoves extends TestCase {
 		
 		NoFrame myFrame = new NoFrame();
 		
-		Location loc = new Location(9,9);
+		Location loc = new Location(7,7);
 		
 		ArrayList<Location> valid_moves = myFrame.addGhost(loc, "Blinky", Color.red).get_valid_moves();
-		// at position (9,9): positions above and below are walls, positions left and right are empty.
+		// at position (7,7):
 		// should have 2 valid moves
 		assertEquals(valid_moves.size(), 2);
 		
