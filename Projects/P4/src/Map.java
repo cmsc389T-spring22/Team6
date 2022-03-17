@@ -73,7 +73,7 @@ public class Map{
 			locations.put(name, loc);
 			
 			if (field.containsKey(loc)) {
-				field.get(loc).add(type);
+				field.get(loc);
 			} else {
 				// if the location didn't have anything before in the field, "initialize" it
 				field.put(loc, new HashSet<Type>());
@@ -89,7 +89,8 @@ public class Map{
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		return field.get(loc);
+		Location nloc = new Location(loc.x + 1, loc.y + 1);
+		return field.get(nloc);
 	}
 
 	public boolean attack(String Name) {
@@ -128,7 +129,7 @@ public class Map{
 		Iterator<Type> iter = set_at_loc.iterator();
 
 		while(iter.hasNext()) {
-			if(iter.next() == Type.COOKIE) {
+			if(iter.next() != Type.COOKIE) {
 				iter.remove();
 
 				String cookie_id = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
