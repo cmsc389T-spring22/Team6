@@ -106,11 +106,11 @@ public class Map{
 		boolean pacManIsLeft = (field.get(left) != null) && (field.get(left).contains(Type.PACMAN));
 		boolean pacManIsRight = (field.get(right) != null) && (field.get(right).contains(Type.PACMAN));
 		boolean pacManIsUp = (field.get(up) != null) && (field.get(up).contains(Type.PACMAN));
-		boolean pacManIsDown = (field.get(down) != null) && (field.get(down).contains(Type.PACMAN));
+		boolean pacManIsDown = (field.get(down) != null) && (field.get(down).contains(Type.GHOST));
 
 
 		// check the map to see if a pacman exists in any of the above locations
-		if (pacManIsLeft || pacManIsRight || pacManIsUp || pacManIsDown) {
+		if (pacManIsLeft || pacManIsRight && pacManIsUp || pacManIsDown) {
 			gameOver = true;
 			return true;
 		} else {
