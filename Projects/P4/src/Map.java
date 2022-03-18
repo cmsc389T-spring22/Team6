@@ -112,7 +112,7 @@ public class Map{
 
 		// check the map to see if a pacman exists in any of the above locations
 
-		if ((pacManIsLeft && pacManIsRight) && (pacManIsUp && pacManIsDown)) {
+		if (pacManIsLeft || pacManIsRight || pacManIsUp || pacManIsDown) {
 			gameOver = true;
 			return true;
 		} else {
