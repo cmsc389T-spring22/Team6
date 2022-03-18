@@ -89,8 +89,7 @@ public class Map{
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
-		Location nloc = new Location(loc.x + 1, loc.y + 1);
-		return field.get(nloc);
+		return field.get(loc);
 	}
 
 	public boolean attack(String Name) {
