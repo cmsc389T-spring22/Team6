@@ -6,7 +6,7 @@ public class PacMan{
 	String myName;
 	Location myLoc;
 	Map myMap;
-	Location shift; 
+	Location shift;
 
 	public PacMan(String name, Location loc, Map map) {
 		this.myLoc = loc;
@@ -16,7 +16,7 @@ public class PacMan{
 
 	public ArrayList<Location> get_valid_moves() {
 		ArrayList<Location> valid_moves = new ArrayList<Location>();
-		
+
 		// checking top
 		Location top = this.myLoc.shift(0, -1);
        		if (myMap.getLoc(top) != null) {
@@ -24,7 +24,7 @@ public class PacMan{
         			valid_moves.add(top);
         		}
 		}
-		
+
 		// checking bottom
         	Location bottom = this.myLoc.shift(0, 1);
         	if (myMap.getLoc(bottom) != null) {
@@ -32,7 +32,7 @@ public class PacMan{
         			valid_moves.add(bottom);
         		}
 		}
-        
+
         	// checking left
         	Location left = this.myLoc.shift(-1, 0);
         	if (myMap.getLoc(left) != null) {
@@ -40,7 +40,7 @@ public class PacMan{
         			valid_moves.add(left);
         		}
 		}
-        
+
        		// checking right
         	Location right = this.myLoc.shift(1, 0);
         	if (myMap.getLoc(right) != null) {
@@ -48,19 +48,17 @@ public class PacMan{
         			valid_moves.add(right);
         		}
 		}
-		
+
 		return valid_moves;
 	}
 
 	public boolean move() {
 		ArrayList<Location> locs = get_valid_moves();
 		if (locs.size() == 0) {
-			System.out.println("pacman move false");
 			return false;
 		} else {
-			Random random_gen = new Random();
-			myLoc = locs.get(random_gen.nextInt(locs.size()));
-			return myMap.move(myName,myLoc,Map.Type.GHOST);
+			myLoc = locs.get(0);
+			return myMap.move(myName, myLoc, Map.Type.PACMAN);
 		}
 	}
 
@@ -73,10 +71,10 @@ public class PacMan{
 
 		// check the map to see if a ghost exists in any of the above locations
 		boolean ghostIsLeft = (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.GHOST));
-		boolean ghostIsRight = (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST)); 
-		boolean ghostIsUp = (myMap.getLoc(up) != null && myMap.getLoc(up).contains(Map.Type.GHOST)); 
-		boolean ghostIsDown = (myMap.getLoc(down) != null && myMap.getLoc(down).contains(Map.Type.GHOST)); 
-		
+		boolean ghostIsRight = (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST));
+		boolean ghostIsUp = (myMap.getLoc(up) != null && myMap.getLoc(up).contains(Map.Type.GHOST));
+		boolean ghostIsDown = (myMap.getLoc(down) != null && myMap.getLoc(down).contains(Map.Type.GHOST));
+
 		if (ghostIsLeft || ghostIsRight || ghostIsUp || ghostIsDown) {
 			return true;
 		} else {
@@ -84,9 +82,9 @@ public class PacMan{
 		}
 	}
 
-	public JComponent consume() { 
-		
-		if (myMap.getLoc(myLoc).contains(Map.Type.GHOST)) {
+	public JComponent consume() {
+
+		if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
 			return myMap.eatCookie(myName);
 		}
 
