@@ -93,30 +93,21 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
-
 		// the location of the ghost
-        	Location ghostLoc = locations.get(Name);
-
+    Location ghostLoc = locations.get(Name);
 
 		Location left = new Location(ghostLoc.x, ghostLoc.y-1);
 		Location right = new Location(ghostLoc.x, ghostLoc.y + 1);
 		Location up = new Location(ghostLoc.x-1, ghostLoc.y);
 		Location down = new Location(ghostLoc.x+1, ghostLoc.y);
-
+		
 		boolean pacManIsLeft = (field.get(left) != null) && (field.get(left).contains(Type.PACMAN));
 		boolean pacManIsRight = (field.get(right) != null) && (field.get(right).contains(Type.PACMAN));
 		boolean pacManIsUp = (field.get(up) != null) && (field.get(up).contains(Type.PACMAN));
 		boolean pacManIsDown = (field.get(down) != null) && (field.get(down).contains(Type.PACMAN));
 
-
 		// check the map to see if a pacman exists in any of the above locations
-
-		if ((pacManIsLeft && pacManIsRight) && (pacManIsUp && pacManIsDown)) {
-			gameOver = true;
-			return true;
-		} else {
-			return false;
-		}
+    return gameOver = pacManIsLeft || pacManIsRight || pacManIsUp || pacManIsDown;
 	}
 
 	public JComponent eatCookie(String name) {
