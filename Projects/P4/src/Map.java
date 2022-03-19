@@ -11,17 +11,17 @@ public class Map{
 		PACMAN,
 		GHOST,
 		WALL,
-		COOKIE		
+		COOKIE
 	}
-	
+
 	private HashMap<Location, HashSet<Type>> field;
 	private boolean gameOver;
 	private int dim;
 
 	private HashMap<String, Location> locations;
-	private HashMap<String, JComponent> components; 
+	private HashMap<String, JComponent> components;
 	private HashSet<Type> emptySet;
-	private HashSet<Type> wallSet; 
+	private HashSet<Type> wallSet;
 
 	private int cookies = 0;
 
@@ -49,55 +49,52 @@ public class Map{
 	public int getCookies() {
 		return cookies;
 	}
-	
+
 	public boolean isGameOver() {
 		return gameOver;
 	}
-		
+
 	public boolean move(String name, Location loc, Type type) {
-		
+
 		// this method updates locations, components, and field.
-		
+
 		// can only work on either pacman or ghost
 		if (type == Map.Type.PACMAN || type == Map.Type.GHOST) {
-			
+
 			// cannot run into a wall (just in case other methods didn't catch this)
 			if (field.get(loc).contains(Map.Type.WALL)) {
 				return false;
 			}
-			
+
 			// removing the type from the previous location
 			field.get(locations.get(name)).remove(type);
-			
+
 			// updating the locations HashMap and field HashMap
 			locations.put(name, loc);
-			
+
 			if (field.containsKey(loc)) {
-				field.get(loc);
+				field.get(loc).add(type);
 			} else {
 				// if the location didn't have anything before in the field, "initialize" it
 				field.put(loc, new HashSet<Type>());
 			}
-			
+
 			// use the setLocation method for the component to move it to the new location
 			components.get(name).setLocation(loc.x, loc.y);
 			return true;
-			
+
 		} else {
 			return false;
-		}	
+		}
 	}
-	
+
 	public HashSet<Type> getLoc(Location loc) {
-		Location nloc = new Location(loc.x + 1, loc.y + 1);
-		return field.get(nloc);
+		return field.get(loc);
 	}
 
 	public boolean attack(String Name) {
-		
 		// the location of the ghost
-        	Location ghostLoc = locations.get(Name);
-
+    Location ghostLoc = locations.get(Name);
 
 		Location left = new Location(ghostLoc.x, ghostLoc.y-1);
 		Location right = new Location(ghostLoc.x, ghostLoc.y + 1);
@@ -109,19 +106,12 @@ public class Map{
 		boolean pacManIsUp = (field.get(up) != null) && (field.get(up).contains(Type.PACMAN));
 		boolean pacManIsDown = (field.get(down) != null) && (field.get(down).contains(Type.PACMAN));
 
-
 		// check the map to see if a pacman exists in any of the above locations
-
-		if ((pacManIsLeft && pacManIsRight) && (pacManIsUp && pacManIsDown)) {
-			gameOver = true;
-			return true;
-		} else {
-			return false;
-		}		
+    return gameOver = pacManIsLeft || pacManIsRight || pacManIsUp || pacManIsDown;
 	}
-	
+
 	public JComponent eatCookie(String name) {
-		
+
 		//update locations, components, field, and cookies
 		//the id for a cookie at (10, 1) is tok_x10_y1
 
@@ -138,6 +128,7 @@ public class Map{
 				JComponent removed = components.remove(cookie_id);
 
 				cookies++;
+        return removed;
 			}
 		}
 
