@@ -63,23 +63,19 @@ public class PacMan{
 	}
 
 	public boolean is_ghost_in_range() {
-		// check the left, right, up, and down location, which is 1 radius from the pacman loc
-		Location left = new Location(this.myLoc.x, this.myLoc.y - 1);
-		Location right = new Location(this.myLoc.x, this.myLoc.y - 1);
-		Location up = new Location(this.myLoc.x-1, this.myLoc.y);
-		Location down = new Location(this.myLoc.x+1, this.myLoc.y);
+    // check the left, right, up, and down location, which is 1 radius from the pacman loc
+    Location left  = new Location(this.myLoc.x-1, this.myLoc.y);
+    Location right = new Location(this.myLoc.x+1, this.myLoc.y);
+    Location up    = new Location(this.myLoc.x,   this.myLoc.y+1);
+    Location down  = new Location(this.myLoc.x,   this.myLoc.y-1);
 
-		// check the map to see if a ghost exists in any of the above locations
-		boolean ghostIsLeft = (myMap.getLoc(left) != null && myMap.getLoc(left).contains(Map.Type.GHOST));
-		boolean ghostIsRight = (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST));
-		boolean ghostIsUp = (myMap.getLoc(up) != null && myMap.getLoc(up).contains(Map.Type.GHOST));
-		boolean ghostIsDown = (myMap.getLoc(down) != null && myMap.getLoc(down).contains(Map.Type.GHOST));
+    // check the map to see if a ghost exists in any of the above locations
+    boolean ghostIsLeft  = (myMap.getLoc(left)  != null && myMap.getLoc(left).contains(Map.Type.GHOST));
+    boolean ghostIsRight = (myMap.getLoc(right) != null && myMap.getLoc(right).contains(Map.Type.GHOST)); 
+    boolean ghostIsUp    = (myMap.getLoc(up)    != null && myMap.getLoc(up).contains(Map.Type.GHOST)); 
+    boolean ghostIsDown  = (myMap.getLoc(down)  != null && myMap.getLoc(down).contains(Map.Type.GHOST)); 
 
-		if (ghostIsLeft || ghostIsRight || ghostIsUp || ghostIsDown) {
-			return true;
-		} else {
-			return false;
-		}
+    return ghostIsLeft || ghostIsRight || ghostIsUp || ghostIsDown;
 	}
 
 	public JComponent consume() {
