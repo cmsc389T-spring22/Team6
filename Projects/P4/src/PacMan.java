@@ -62,7 +62,7 @@ public class PacMan{
 		}
 	}
 
-	public boolean is_ghost_in_range() {
+  public boolean is_ghost_in_range() {
     // check the left, right, up, and down location, which is 1 radius from the pacman loc
     Location left  = new Location(this.myLoc.x-1, this.myLoc.y);
     Location right = new Location(this.myLoc.x+1, this.myLoc.y);
@@ -76,7 +76,7 @@ public class PacMan{
     boolean ghostIsDown  = (myMap.getLoc(down)  != null && myMap.getLoc(down).contains(Map.Type.GHOST)); 
 
     return ghostIsLeft || ghostIsRight || ghostIsUp || ghostIsDown;
-	}
+  }
 
 	public JComponent consume() {
 
